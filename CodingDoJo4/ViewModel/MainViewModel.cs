@@ -15,9 +15,7 @@ namespace CodingDoJo4.ViewModel
         private int newSocSecNo = 0;
         private DateTime newBirthDate;
         string fileName = @"C:\Users\user\Documents\Visual Studio 2015\Projects\test.csv";
-        int tempSizeOfList;
-
-
+        
         private ObservableCollection<PersonVM> newPersonList = new ObservableCollection<PersonVM>();
 
         RelayCommand addBtnClickedCommand;
@@ -77,11 +75,12 @@ namespace CodingDoJo4.ViewModel
             AddBtnClickedCommand = new RelayCommand(AddButtonClicked, CanExecute);
             LoadDataBtnCommand = new RelayCommand(LoadDataListBtnClicked, CSVFileExist);
             SaveDataBtnCommand = new RelayCommand(SaveDataListBtnClicked, CanSaveDataToCSVList);
-            Load();
+            //Load();
         }
 
         private bool CanSaveDataToCSVList()
-        {            
+        {
+            int tempSizeOfList = 0;
             foreach (PersonVM TempPers in newPersonList) { tempSizeOfList++; }
             return tempSizeOfList > 0;
         }
